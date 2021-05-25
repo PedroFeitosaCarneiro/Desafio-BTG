@@ -18,10 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        
-        let view = ViewController()
-        view.modalPresentationStyle = .fullScreen
-        window?.rootViewController = view
+        let Factory = ModuleFactory()
+        let viewController = Factory.makeListCurrencyModule()
+        let navigation = UINavigationController(rootViewController: viewController)
+        viewController.modalPresentationStyle = .fullScreen
+        window?.rootViewController = navigation
         window?.makeKeyAndVisible()
         
     }

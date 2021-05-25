@@ -10,3 +10,25 @@ import Foundation
 class Utils {
     static let APIkey = "79eeaddff87d7e8dda32f1370a6663cc"
 }
+
+
+public protocol ViewCoding {
+    
+    func buildViewHierarchy()
+
+    func setupConstraints()
+
+    func setupAdditionalConfiguration()
+
+    func setupView()
+}
+
+extension ViewCoding {
+    func setupView() {
+        buildViewHierarchy()
+        setupConstraints()
+        setupAdditionalConfiguration()
+    }
+
+    func setupAdditionalConfiguration() {}
+}
