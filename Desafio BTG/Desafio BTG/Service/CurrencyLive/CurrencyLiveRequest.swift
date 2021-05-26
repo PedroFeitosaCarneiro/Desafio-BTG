@@ -12,7 +12,7 @@ class CurrencyLiveRequest{
     
     let request = CurrencyLiveService()
     
-    func makeCurrencyLiveRequest(completionHandler: @escaping (Currency?, Error?) -> ()){
+    func makeCurrencyLiveRequest(completionHandler: @escaping ResponseHandler){
         let apiLoader = APILoader(apiRequest: request)
         let queryParameters : KeyValuePairs<Any,Any> = ["access_key":Utils.APIkey]
         

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB1A78C6265DCA4400D8B77C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A78C5265DCA4400D8B77C /* Coordinator.swift */; };
+		EB1A78C9265DCAFA00D8B77C /* ConversionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A78C8265DCAFA00D8B77C /* ConversionCoordinator.swift */; };
+		EB1A78CB265DCC8900D8B77C /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A78CA265DCC8900D8B77C /* ListCoordinator.swift */; };
 		EB7BD410265CF9310067A3E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7BD40F265CF9310067A3E6 /* AppDelegate.swift */; };
 		EB7BD412265CF9310067A3E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7BD411265CF9310067A3E6 /* SceneDelegate.swift */; };
 		EB7BD419265CF9330067A3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7BD418265CF9330067A3E6 /* Assets.xcassets */; };
@@ -49,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB1A78C5265DCA4400D8B77C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		EB1A78C8265DCAFA00D8B77C /* ConversionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCoordinator.swift; sourceTree = "<group>"; };
+		EB1A78CA265DCC8900D8B77C /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
 		EB7BD40C265CF9310067A3E6 /* Desafio BTG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio BTG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7BD40F265CF9310067A3E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7BD411265CF9310067A3E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +110,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB1A78C4265DCA2200D8B77C /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				EB1A78C5265DCA4400D8B77C /* Coordinator.swift */,
+				EB1A78C8265DCAFA00D8B77C /* ConversionCoordinator.swift */,
+				EB1A78CA265DCC8900D8B77C /* ListCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		EB7BD403265CF9310067A3E6 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +143,7 @@
 		EB7BD40E265CF9310067A3E6 /* Desafio BTG */ = {
 			isa = PBXGroup;
 			children = (
+				EB1A78C4265DCA2200D8B77C /* Coordinators */,
 				EBF3F61C265D830400AE2F09 /* Factory */,
 				EBF3F626265D844E00AE2F09 /* Managers */,
 				EBF3F61F265D839000AE2F09 /* Modules */,
@@ -417,6 +434,7 @@
 				EB7BD441265CF9D50067A3E6 /* APIHandler.swift in Sources */,
 				EBF3F625265D842A00AE2F09 /* ListCurrencyView.swift in Sources */,
 				EBF3F628265D847200AE2F09 /* ListCurrencyManager.swift in Sources */,
+				EB1A78C6265DCA4400D8B77C /* Coordinator.swift in Sources */,
 				EB7BD448265CFC2F0067A3E6 /* CurrencyLiveService.swift in Sources */,
 				EBF3F619265D807C00AE2F09 /* ConversionCurrencyViewController.swift in Sources */,
 				EB7BD445265CFACD0067A3E6 /* APILoader.swift in Sources */,
@@ -426,6 +444,8 @@
 				EBF3F61B265D808800AE2F09 /* ListCurrencyViewController.swift in Sources */,
 				EB7BD44D265CFDF00067A3E6 /* CurrencyLiveRequest.swift in Sources */,
 				EB7BD410265CF9310067A3E6 /* AppDelegate.swift in Sources */,
+				EB1A78C9265DCAFA00D8B77C /* ConversionCoordinator.swift in Sources */,
+				EB1A78CB265DCC8900D8B77C /* ListCoordinator.swift in Sources */,
 				EBF3F62F265D9AC700AE2F09 /* ListCell.swift in Sources */,
 				EB7BD44B265CFD080067A3E6 /* Currency.swift in Sources */,
 				EB7BD412265CF9310067A3E6 /* SceneDelegate.swift in Sources */,

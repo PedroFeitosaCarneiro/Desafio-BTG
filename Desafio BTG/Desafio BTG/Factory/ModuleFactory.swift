@@ -16,7 +16,7 @@ protocol ListModuleFactory{
     func makeListCurrencyModule() -> ListCurrencyViewController
 }
 
-final class ModuleFactory: ConversionModuleFactory, ListModuleFactory{
+class ModuleFactory: ConversionModuleFactory, ListModuleFactory{
     func makeConversionCurrencyModule() -> ConversionCurrencyViewController {
         return ConversionCurrencyViewController()
     }

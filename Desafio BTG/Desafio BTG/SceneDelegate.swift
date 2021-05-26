@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var conversionCoordinator: ConversionCoordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -18,11 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        let Factory = ModuleFactory()
-        let viewController = Factory.makeListCurrencyModule()
-        let navigation = UINavigationController(rootViewController: viewController)
-        viewController.modalPresentationStyle = .fullScreen
+        let navigation = UINavigationController()
+        
+        conversionCoordinator = ConversionCoordinator(navigationController: navigation, factory: ModuleFactory())
         window?.rootViewController = navigation
+        conversionCoordinator?.start()
         window?.makeKeyAndVisible()
         
     }

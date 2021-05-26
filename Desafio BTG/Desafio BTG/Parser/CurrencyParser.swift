@@ -19,10 +19,10 @@ class CurrencyParser{
     
     private var stashedCurrencies: [String:Float]?
     
+    
     init() {
         
     }
-    
     
     func convertCurrency(from oldCurrency: CurrencyCode,
                          to newCurrency: CurrencyCode,
