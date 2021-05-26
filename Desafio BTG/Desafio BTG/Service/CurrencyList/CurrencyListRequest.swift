@@ -1,16 +1,16 @@
 //
-//  CurrencyLiveRequest.swift
+//  CurrencyListRequest.swift
 //  Desafio BTG
 //
-//  Created by Pedro Feitosa on 25/05/21.
+//  Created by Pedro Feitosa on 26/05/21.
 //
 
 import Foundation
 
-class CurrencyLiveRequest{
-    typealias ResponseHandler = (CurrencyQuotes?, Error?) -> ()
+class CurrencyListRequest{
+    typealias ResponseHandler = (Currency?, Error?) -> ()
     
-    let request = CurrencyLiveService()
+    let request = CurrencyListService()
     
     func makeCurrencyLiveRequest(completionHandler: @escaping ResponseHandler){
         let apiLoader = APILoader(apiRequest: request)
@@ -21,7 +21,7 @@ class CurrencyLiveRequest{
                     completionHandler(nil, error)
                 } else {
                     guard let response = response else { return }
-                    let currencyResponse: CurrencyQuotes = response
+                    let currencyResponse: TCurrency = response
                     completionHandler(currencyResponse, nil)
                 }
             }

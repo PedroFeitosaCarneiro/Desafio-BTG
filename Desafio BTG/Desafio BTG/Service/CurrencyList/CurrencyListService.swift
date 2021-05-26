@@ -1,19 +1,19 @@
 //
-//  CurrencyLiveService.swift
+//  CurrencyListService.swift
 //  Desafio BTG
 //
-//  Created by Pedro Feitosa on 25/05/21.
+//  Created by Pedro Feitosa on 26/05/21.
 //
 
 import Foundation
 
-struct CurrencyLiveService: APIHandler{
+struct CurrencyListService: APIHandler{
     
     private var requestURL: URLComponents {
         var components = URLComponents()
         components.scheme = "http"
         components.host = "api.currencylayer.com"
-        components.path = "/live"
+        components.path = "/list"
         return components
     }
     
@@ -27,7 +27,7 @@ struct CurrencyLiveService: APIHandler{
         return nil
     }
     
-    func parseResponse(data: Data, response: HTTPURLResponse) throws -> TCurrencyQuotes? {
+    func parseResponse(data: Data, response: HTTPURLResponse) throws -> TCurrency? {
         return try defaultParseResponse(data: data,response: response)
     }
     

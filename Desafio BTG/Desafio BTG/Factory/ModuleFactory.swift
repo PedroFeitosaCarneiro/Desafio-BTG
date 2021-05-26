@@ -12,17 +12,21 @@ protocol ConversionModuleFactory{
     func makeConversionCurrencyModule() -> ConversionCurrencyViewController
 }
 
-protocol ListModuleFactory{
-    func makeListCurrencyModule() -> ListCurrencyViewController
+protocol PickerModuleFactory{
+    func makePickerCurrencyModule() -> PickerCurrencyViewController
 }
 
-class ModuleFactory: ConversionModuleFactory, ListModuleFactory{
+class ModuleFactory: ConversionModuleFactory,PickerModuleFactory{
+
     func makeConversionCurrencyModule() -> ConversionCurrencyViewController {
-        return ConversionCurrencyViewController()
+        let manager = TConversionCurrencyManager()
+        return ConversionCurrencyViewController(manager: manager)
     }
     
-    func makeListCurrencyModule() -> ListCurrencyViewController {
-        return ListCurrencyViewController()
+    
+    func makePickerCurrencyModule() -> PickerCurrencyViewController {
+        let manager = TPickerCurrencyManager()
+        return PickerCurrencyViewController(manager: manager)
     }
     
 }

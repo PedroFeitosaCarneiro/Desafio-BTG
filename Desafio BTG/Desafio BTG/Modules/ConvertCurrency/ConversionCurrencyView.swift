@@ -11,6 +11,23 @@ import UIKit
 
 class ConversionCurrencyView: UIView{
     
+    var didTapFirstCurrencyButton: (() -> Void)?
+    var didTapSecondCurrencyButton: (() -> Void)?
+    var didTapConvertButton: ((String, String, Float) -> Void)?
+    
+    var viewModel: ConversionCurrencyViewModel? {
+        didSet {
+            DispatchQueue.main.async { [self] in
+                self.dataSource = viewModel?.currencyCodes ?? []
+                self.toTextField.text = viewModel?.textFieldValue ?? ""
+                self.firstCurrencyButton.setTitle(viewModel?.fromButtonTittle, for: .normal)
+                self.SecondCurrencyButton.setTitle(viewModel?.toButtonTittle, for: .normal)
+            }
+        }
+    }
+    
+    private var dataSource: [String] = []
+    
     private var fromTextField: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.placeholder = "from..."
@@ -46,7 +63,7 @@ class ConversionCurrencyView: UIView{
         return button
     }()
     
-    private var firstCurrencyButton: UIButton = {
+     private var firstCurrencyButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.setTitle("USD", for: .normal)
         button.backgroundColor = .systemPink
@@ -58,7 +75,7 @@ class ConversionCurrencyView: UIView{
         return button
     }()
     
-    private var SecondCurrencyButton: UIButton = {
+     private var SecondCurrencyButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.setTitle("BRL", for: .normal)
         button.backgroundColor = .systemPink
@@ -84,7 +101,19 @@ class ConversionCurrencyView: UIView{
         setupView()
     }
     
+    @objc func firstCurrencyButtonPressed() {
+        didTapFirstCurrencyButton?()
+    }
     
+    @objc func secondCurrencyButtonPressed() {
+        didTapSecondCurrencyButton?()
+    }
+    
+    @objc func conversionButtonPressed(){
+        guard let numericText = fromTextField.text else {return}
+        
+        didTapConvertButton?(firstCurrencyButton.titleLabel?.text ?? "", SecondCurrencyButton.titleLabel?.text ?? "", Float(numericText) ?? 0)
+    }
     
 }
 
@@ -140,7 +169,8 @@ extension ConversionCurrencyView: ViewCoding{
     
     func setupAdditionalConfiguration() {
         self.backgroundColor = .white
+        firstCurrencyButton.addTarget(self, action: #selector(firstCurrencyButtonPressed), for: .touchDown)
+        SecondCurrencyButton.addTarget(self, action: #selector(secondCurrencyButtonPressed), for: .touchDown)
+        convertButton.addTarget(self, action: #selector(conversionButtonPressed), for: .touchDown)
     }
-    
-    
 }

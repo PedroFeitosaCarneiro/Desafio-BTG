@@ -1,14 +1,21 @@
 //
-//  ListCell.swift
+//  PickerCell.swift
 //  Desafio BTG
 //
-//  Created by Pedro Feitosa on 25/05/21.
+//  Created by Pedro Feitosa on 26/05/21.
 //
 
 import Foundation
 import UIKit
 
-class ListCell: UITableViewCell {
+class PickerCell: UITableViewCell {
+    
+    var model: (String,String)? {
+        didSet {
+            currencyCodeLabel.text = model?.0
+            currencyNameLabel.text = "-   \(model?.1 ?? "")"
+        }
+    }
     
     private var currencyCodeLabel: UILabel = {
         let label = UILabel(frame: .zero)
@@ -34,7 +41,7 @@ class ListCell: UITableViewCell {
     
 }
 
-extension ListCell: ViewCoding{
+extension PickerCell: ViewCoding{
     func buildViewHierarchy() {
         addSubview(currencyCodeLabel)
         addSubview(currencyNameLabel)

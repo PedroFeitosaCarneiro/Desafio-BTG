@@ -8,9 +8,6 @@
 import Foundation
 import UIKit
 
-
-
-
 class ConversionCoordinator: Coordinator {
     
     let navigationController: UINavigationController
@@ -26,16 +23,19 @@ class ConversionCoordinator: Coordinator {
     
     func start() {
         let conversionCurrencyViewController: ConversionCurrencyViewController = factory.makeConversionCurrencyModule()
-        conversionCurrencyViewController.navigationDelegate = self
+        conversionCurrencyViewController.pickerNavigationDelegate = self
         self.navigationController.viewControllers = [conversionCurrencyViewController]
     }
     
     
 }
 
-extension ConversionCoordinator: ConversionCurrencyNavigation {
-    func navigateToListPage() {
-        let listCoordinator = ListCoordinator(navigationController: navigationController, factory: ModuleFactory())
-        listCoordinator.start()
+extension ConversionCoordinator: PickerCurrencyNavigation {
+    func navigateToPickerPage(from: ConversionCurrencyViewController, identifier: String) {
+        let pickerCoorditor = PickerCoordinator(navigationController: navigationController, factory: ModuleFactory())
+        pickerCoorditor.currencyReference = from
+        pickerCoorditor.identifier = identifier
+        pickerCoorditor.start()
     }
+    
 }
