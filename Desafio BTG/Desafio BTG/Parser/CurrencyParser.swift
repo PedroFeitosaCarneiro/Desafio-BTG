@@ -19,8 +19,7 @@ class CurrencyParser{
     
     private var stashedCurrencies: [String:Float]?
     
-    
-    init() {
+    func checkStoredData(){
         if let currencies = UserDefaults.standard.object(forKey: "CurrenciesLive") as? [String:Float] {
             self.stashedCurrencies = currencies
         }
@@ -29,6 +28,7 @@ class CurrencyParser{
     func convertCurrency(from oldCurrency: CurrencyCode,
                          to newCurrency: CurrencyCode,
                          times: Float) throws -> Float{
+        checkStoredData()
         
         var calculatedCurrency: (Float,Float) = (0,0)
         guard let stashedCurrencies = stashedCurrencies else { throw BadCurrency.notFound }

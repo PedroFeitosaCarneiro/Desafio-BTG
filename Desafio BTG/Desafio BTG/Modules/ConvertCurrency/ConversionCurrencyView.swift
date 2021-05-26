@@ -132,22 +132,22 @@ extension ConversionCurrencyView: ViewCoding{
             
             
             tittleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-            tittleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -350),
-            tittleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 90),
+            tittleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -610),
+            tittleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 125),
             tittleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
         
             fromTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: 250),
-            fromTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -270),
+            fromTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -510),
             fromTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             fromTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -100),
 
             toTextField.topAnchor.constraint(equalTo: fromTextField.bottomAnchor, constant: 20),
-            toTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -200),
+            toTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -400),
             toTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             toTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -100),
 
 
-            convertButton.topAnchor.constraint(equalTo: toTextField.bottomAnchor, constant: 60),
+            convertButton.topAnchor.constraint(equalTo: toTextField.bottomAnchor, constant: 200),
             convertButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -80),
             convertButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 90),
             convertButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -90),

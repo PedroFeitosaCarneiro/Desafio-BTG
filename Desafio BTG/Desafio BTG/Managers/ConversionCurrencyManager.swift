@@ -26,8 +26,8 @@ class TConversionCurrencyManager: ConversionCurrencyManager {
         
         if let currencies = UserDefaults.standard.object(forKey: "CurrenciesLive") as? CurrencyQuotes {
             currencies.quotes.forEach { currencyCodes.append($0.key) }
-            completion(TConversionCurrencyViewModel(fromButtonTittle: "N/A",
-                                                    toButtonTittle: "N/A",
+            completion(TConversionCurrencyViewModel(fromButtonTittle: "USD",
+                                                    toButtonTittle: "BRL",
                                                     currencyCodes: currencyCodes))
             return
         }
@@ -40,8 +40,8 @@ class TConversionCurrencyManager: ConversionCurrencyManager {
             
             currency.quotes.forEach { currencyCodes.append($0.key) }
             UserDefaults.standard.setValue(currency.quotes, forKey: "CurrenciesLive")
-            completion(TConversionCurrencyViewModel(fromButtonTittle: "N/A",
-                                                    toButtonTittle: "N/A",
+            completion(TConversionCurrencyViewModel(fromButtonTittle: "USD",
+                                                    toButtonTittle: "BRL",
                                                     currencyCodes: currencyCodes))
         }
     }
