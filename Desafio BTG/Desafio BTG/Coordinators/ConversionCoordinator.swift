@@ -19,8 +19,6 @@ class ConversionCoordinator: Coordinator {
         self.factory = factory
     }
     
-    
-    
     func start() {
         let conversionCurrencyViewController: ConversionCurrencyViewController = factory.makeConversionCurrencyModule()
         conversionCurrencyViewController.pickerNavigationDelegate = self

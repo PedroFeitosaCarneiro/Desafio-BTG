@@ -99,6 +99,7 @@ class ConversionCurrencyView: UIView{
     override func layoutSubviews() {
         super.layoutSubviews()
         setupView()
+        hideKeyboard()
     }
     
     @objc func firstCurrencyButtonPressed() {
@@ -169,8 +170,30 @@ extension ConversionCurrencyView: ViewCoding{
     
     func setupAdditionalConfiguration() {
         self.backgroundColor = .white
+        fromTextField.delegate = self
         firstCurrencyButton.addTarget(self, action: #selector(firstCurrencyButtonPressed), for: .touchDown)
         SecondCurrencyButton.addTarget(self, action: #selector(secondCurrencyButtonPressed), for: .touchDown)
         convertButton.addTarget(self, action: #selector(conversionButtonPressed), for: .touchDown)
+    }
+}
+
+extension ConversionCurrencyView: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+}
+
+extension ConversionCurrencyView {
+    func hideKeyboard() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.endEditing(true)
     }
 }

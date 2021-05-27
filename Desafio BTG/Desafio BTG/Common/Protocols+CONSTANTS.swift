@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Utils {
-    static let APIkey = "79eeaddff87d7e8dda32f1370a6663cc"
+class CONSTANTS {
+    static let APIKEY = "79eeaddff87d7e8dda32f1370a6663cc"
 }
 
 

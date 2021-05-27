@@ -14,7 +14,7 @@ class CurrencyListRequest{
     
     func makeCurrencyLiveRequest(completionHandler: @escaping ResponseHandler){
         let apiLoader = APILoader(apiRequest: request)
-        let queryParameters : KeyValuePairs<Any,Any> = ["access_key":Utils.APIkey]
+        let queryParameters : KeyValuePairs<Any,Any> = ["access_key":CONSTANTS.APIKEY]
         
         apiLoader.loadAPIRequest(requestData: queryParameters) { (response, error) in
                 if let error = error {

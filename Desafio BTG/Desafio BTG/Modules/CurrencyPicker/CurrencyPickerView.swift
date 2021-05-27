@@ -11,12 +11,11 @@ import UIKit
 
 
 class CurrencyPickerView: UIView {
-//    weak var didSelect: DidSelectCurrency?
     
-    let listTableView: UITableView = {
+    let pickerTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(PickerCell.self, forCellReuseIdentifier: "listCell")
+        tableView.register(PickerCell.self, forCellReuseIdentifier: "pickerCell")
         return tableView
     }()
     
@@ -26,7 +25,7 @@ class CurrencyPickerView: UIView {
     var viewModel: PickerCurrencyViewModel? {
         didSet{
             DispatchQueue.main.async {
-                self.listTableView.reloadData()
+                self.pickerTableView.reloadData()
             }
             
         }
@@ -48,24 +47,24 @@ class CurrencyPickerView: UIView {
 
 extension CurrencyPickerView: ViewCoding{
     func buildViewHierarchy() {
-        addSubview(listTableView)
+        addSubview(pickerTableView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
         
-            listTableView.topAnchor.constraint(equalTo: topAnchor),
-            listTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            listTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            listTableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            pickerTableView.topAnchor.constraint(equalTo: topAnchor),
+            pickerTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            pickerTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            pickerTableView.trailingAnchor.constraint(equalTo: trailingAnchor)
         
         ])
     }
     
     func setupAdditionalConfiguration() {
         self.backgroundColor = .white
-        self.listTableView.delegate = self
-        self.listTableView.dataSource = self
+        self.pickerTableView.delegate = self
+        self.pickerTableView.dataSource = self
     }
     
     
@@ -78,7 +77,7 @@ extension CurrencyPickerView: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as? PickerCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "pickerCell", for: indexPath) as? PickerCell else {return UITableViewCell()}
         cell.model = viewModel?.currencyCodes[indexPath.row]
         return cell
     }
